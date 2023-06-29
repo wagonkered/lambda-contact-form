@@ -1,0 +1,23 @@
+name: Go Unit Tests
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@latest
+
+    - name: Set up Go
+      uses: actions/setup-go@latest
+      with:
+        go-version: stable
+
+    - name: Vet
+      run: make vet
+    
+    - name: Test
+      run: make test
