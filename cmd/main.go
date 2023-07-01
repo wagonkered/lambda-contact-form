@@ -94,7 +94,7 @@ func sendEmail(form FormBody) (err error) {
 }
 
 func handler(request events.APIGatewayProxyRequest) (response events.APIGatewayProxyResponse, err error) {
-	response.Headers = map[string]string{"Access-Control-Allow-Origin": "*"}
+	response.Headers = map[string]string{"Access-Control-Allow-Origin": "https://wagonkered.co.uk"}
 	response.StatusCode = 401
 	response.Body = "Unable to send email"
 
