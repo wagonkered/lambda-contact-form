@@ -8,7 +8,7 @@ $(BINARY):
 	mkdir -p $(BINDIR) 
 	GOARCH=amd64 GOOS=linux CGO_ENABLED=0 go build -tags lambda.norpc -o $(BINDIR)/$(BINARY) $(CMD)
 
-.PHONY: deps clean deploy test vet fmt
+.PHONY: deps clean build deploy test vet fmt
 deps:
 	go get -u ./...
 
@@ -24,8 +24,7 @@ else
 endif
 
 test:
-	go test -v -cover ./...
-	#go test -cover ./...
+	go test -cover ./...
 
 cover:
 	mkdir -p $(REPORT)
